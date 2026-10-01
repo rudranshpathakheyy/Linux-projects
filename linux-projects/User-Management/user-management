@@ -1,0 +1,60 @@
+#!/bin/bash
+
+ echo "========================================"
+    echo "        USER MANAGEMENT TOOLKIT"
+    echo "========================================"
+    echo "1. Create User"
+    echo "2. Create Group"
+    echo "3. Add User to Group"
+    echo "4. Show User Information"
+    echo "5. Grant Sudo Access"
+    echo "6. Delete User"
+    echo "7. Exit"
+    echo "========================================"
+
+read -p "Enter YOUR CHOICE: " choice
+
+case $choice in
+    1)
+        read -p "Enter username: " username
+        useradd "$username"
+        ;;
+    2)
+read -p "Enter groupname: " groupname
+groupadd $groupname ;;
+
+ 3) echo "Add User to Group : " 
+    read -p "Enter username: " username
+    read -p "Enter groupname: " groupname
+
+    if id -nG "$username" | grep -qw "$groupname"; then
+        echo "User $username already exists in group $groupname"
+    else
+        usermod -aG "$groupname" "$username"
+        echo "User $username successfully added to group $groupname"
+    fi
+    ;;
+ 4) 
+    read -p "Enter Username " username
+    if id $username &>/dev/null ; then
+echo "$(id $username)"
+ else 
+echo " INVALID USERNAME "
+fi ;;
+
+5) read -p "Enter Username : " username
+usermod -aG wheel $username
+echo "Successful" ;;
+
+6)
+read -p "Enter Username to DELETE : " username
+if userdel -r $username &>/dev/null ; then
+echo "User Deleted Successfully"
+else 
+echo "Invalid User"
+fi ;;
+
+7) exit ;;
+
+*) echo "INVALID CHOICE";;
+esac
