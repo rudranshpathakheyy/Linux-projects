@@ -61,15 +61,13 @@ systemctl enable $service ;;
 
 nslookup $domain ;;
 
-11)
-    read -p "Enter port: " port
+11) read -p "Enter port: " port
 
-    if ss -lnt | grep -q ":$port "; then
-        echo "Port $port is LISTENING"
-    else
-        echo "Port $port is NOT LISTENING"
-    fi
-    ;;
+if ss -lnt | grep -q ":$port "; then
+    echo "Port $port is LISTENING"
+else
+    echo "Port $port is NOT LISTENING"
+fi ;;
 
 12) exit ;;
 
