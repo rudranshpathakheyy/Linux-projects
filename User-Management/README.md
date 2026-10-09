@@ -1,48 +1,32 @@
-# 🐧 Linux User Management Toolkit
+# Linux User Management Toolkit
 
-> A Bash-based automation tool for managing Linux users, groups, and sudo access.
+## About the Project
 
----
+This is a Bash scripting project created to simplify basic user and group management tasks in Linux.
 
-## 📌 About The Project
+The script provides a menu through which users can create users and groups, add users to groups, check user information, grant sudo access, and delete users.
 
-This project is a simple **Linux User Management Toolkit** built using **Bash scripting**.
+I made this project to practise Linux user administration and automate some common tasks using shell scripting.
 
-It provides an interactive menu to perform common Linux administration tasks without typing every command manually.
+## Features
 
----
+- Create a new user
+- Create a new group
+- Add a user to a group
+- Display user information
+- Grant sudo access
+- Delete a user along with their home directory
+- Check whether a user or group operation is successful
 
-## 🚀 Features
+## Requirements
 
-| Option | Function |
-|--------|----------|
-| 👤 1 | Create User |
-| 👥 2 | Create Group |
-| 🔗 3 | Add User to Group |
-| 🔍 4 | Show User Information |
-| 🔐 5 | Grant Sudo Access |
-| 🗑️ 6 | Delete User |
-| 🚪 7 | Exit |
+- Linux operating system
+- Bash shell
+- Root privileges or appropriate sudo permissions
 
----
+## How to Run
 
-## 🛠️ Technologies Used
-
-- 🐧 Linux
-- 💻 Bash Shell Scripting
-- 🔧 Linux User & Group Management Commands
-
----
-
-## 📚 Commands Used
+Give execute permission to the script:
 
 ```bash
-useradd
-groupadd
-usermod
-userdel
-id
-grep
-read
-case
-if/else
+chmod +x user-management.sh
